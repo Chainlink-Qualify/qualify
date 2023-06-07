@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavigateButton = styled.button`
   margin-top: 2.1rem;
-  margin-left:2rem;
+  margin-left:10rem;
   background: ${(props) =>
     props.backgroundColor ? props.backgroundColor : "#fff"};
   border-radius: 4px;

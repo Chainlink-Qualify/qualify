@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 import {
   ApplicantDashboardHeader,
@@ -10,17 +11,16 @@ import {
   ParentContainer,
   SearchBarContainer,
   SearchBarForm,
-  SettingContainer,
-  WalletWrapper,
-  VettingWrapper
+  SettingContainer
 } from "./applicant.dashboard.styles";
 import searchIcon from "../../assets/search-icon.png";
 import notification from "../../assets/notification.png";
 import setting from "../../assets/setting.png";
 import { getUserName } from "../../utils";
 import { sideBarLinks } from "./applicant.routes";
-import Wallet from "../../components/wallet/Wallet";
-import Vetting from "../../components/vetting-analysis/Vetting";
+import ApplicantHome from "../../pages/applicant-home/ApplicantHome";
+
+
 
 
 const ApplicantDashboard = () => {
@@ -63,12 +63,11 @@ const ApplicantDashboard = () => {
             overflowY: "auto",
           }}
         >
-          <WalletWrapper>
-            <Wallet />
-          </WalletWrapper>
-          <VettingWrapper>
-          <Vetting/>
-          </VettingWrapper>
+          <Routes>
+            <Route index element={<ApplicantHome />} />
+            <Route path="/" element={<ApplicantHome />} />
+            </Routes>
+          
 
 
 

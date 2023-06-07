@@ -16,6 +16,7 @@ return(<WalletParent>
               color="#FFFFFF"
               borderColor="#752F9F"
               width="13rem"
+              marginLeft="5rem"
               
 />
 </ContentWrapper>
