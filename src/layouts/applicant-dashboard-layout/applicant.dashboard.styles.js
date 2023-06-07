@@ -143,14 +143,5 @@ margin-top: 2rem;
 margin-left:2rem;    
 `;
 
-export const VettingWrapper = styled.div`
-width: 100%;
-height: 50%;
-display: flex;
-background:#fff;
-align-items: center;
-padding-top: 2rem; 
-margin-top: 2rem; 
-margin-left:2rem;    
-`;
+
 

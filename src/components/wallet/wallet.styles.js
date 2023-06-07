@@ -9,7 +9,7 @@ export const WalletParent = styled.div`
   display: flex;
   flex-direction: column;
   background: ${(props) => (props.background ? props.background : "")};
-  border: 1px solid ${(props) => (props.borderColor ? props.borderColor : "")};
+  border: 1px solid #CCCCCC;
   border-radius: 12px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.05), 0px 15px 25px rgba(0, 0, 0, 0.03);
   }

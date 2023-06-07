@@ -1,16 +1,17 @@
 import React from "react";
-import Button from "../custom-button/Button";
-import { SummaryCard, SummaryContainer, VettingParent } from "./vetting.styles";
+import { CenterWrapper, Button,SummaryCard, SummaryContainer, VettingParent } from "./vetting.styles";
 
 
 
 
 const Vetting =()=>{
 
-return(<VettingParent>
+return(
+     <VettingParent>
+       <CenterWrapper>
        <h3>Vetting Analysis</h3>
        <SummaryContainer>
-       <SummaryCard background="#22A57E" borderColor="#22A57E">
+       <SummaryCard background="#F2FCF9" borderColor="#F2FCF9">
         <h1>Completed Requests</h1>
        </SummaryCard>
        <SummaryCard background="#FFF9E5" borderColor="#FFF9E5">
@@ -20,13 +21,8 @@ return(<VettingParent>
         <h1>Denied Requests</h1>
        </SummaryCard>
        </SummaryContainer>
-       <Button text="Request Vetting"
-       backgroundColor="#8E44AD"
-       color="#FFFFFF"
-       borderColor="#752F9F"
-       width="13rem"
-       />
-
+       <Button>Request Vetting</Button>
+       </CenterWrapper>
 </VettingParent>
 
 
