@@ -72,7 +72,7 @@ align-items: center;
 justify-content: center;
 font-weight:700;
 margin-left:12rem;
-margin-buttom:1rem;
+margin-bottom:1rem;
 
 
 `;
