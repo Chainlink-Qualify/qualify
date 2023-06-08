@@ -18,6 +18,12 @@ export const CenterWrapper = styled.div`
   // position: relative;
 `;
 
+export const Wrapper = styled.div`
+  display:flex;
+  width: 93%;
+  height: 90%;
+`;
+
 export const WalletWrapper = styled.div`
 width: 100%;
 height: 50%;
@@ -34,9 +40,31 @@ height: 70%;
 display: flex;
 background:#fff;
 align-items: center;
-margin-top: 5rem; 
 margin-left:1rem;    
 `;
+
+
+export const ActivityWrapper = styled.div`
+width: 100vw;
+height: 50%;
+display: flex;
+background:#fff;
+align-items: center;
+margin-top: 7rem; 
+margin-left:1rem;    
+`;
+
+export const TransactionWrapper = styled.div`
+width: 100vw;
+height: 50%;
+display: flex;
+background:#fff;
+align-items: center;
+margin-top: 7rem; 
+margin-left:1rem;    
+`;
+
+
 
 export const DarkOverlayContainer = styled.div`
   position: absolute;
