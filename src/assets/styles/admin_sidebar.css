@@ -1,0 +1,54 @@
+.admin_container{
+    width: 100%;
+}
+
+.sidebar{
+    background-color: white;
+    border-right: 1px solid gainsboro;
+    height: 100vh;
+    width: 250px;
+    min-width: 250px;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar .logo_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.sidebar menu{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sidebar menu ul{
+    width: 100%;
+}
+
+.sidebar menu li{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.sidebar menu li a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: 55px;
+    padding: 0px 20px;
+}
+
+.sidebar menu li .active:not(.base){
+    color: white;
+    background-color: #752F9F;
+}
+
+.sidebar menu li a svg{
+    font-size: 22px;
+}
