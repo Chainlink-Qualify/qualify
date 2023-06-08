@@ -1,13 +1,20 @@
 import { BiHome } from "react-icons/bi"
-import { NavLink as A } from 'react-router-dom';
+import { NavLink as A, useLocation } from 'react-router-dom';
+import logo from "../../assets/logo.png";
+
 const AdminSidebar = () => {
+    const location = useLocation()
+
     return (
         <>
             <div className="sidebar">
+                <div className="logo_container">
+                    <img src={logo} alt="" />
+                </div>
                 <menu>
                     <ul>
                         <li>
-                            <A to="/admin"><BiHome /> Dashboard</A>
+                            <A className={location.pathname === "/admin" ? "active" : "base"} to="/admin"><BiHome /> Dashboard</A>
                         </li>
                         <li>
                             <A to="/admin/registered-users"><BiHome /> Registered users</A>
