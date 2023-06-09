@@ -13,7 +13,7 @@ const SignUp = () => {
     const form = useForm({
         validate: zodResolver(signUpSchema),
         initialValues: {
-            email: "",
+            email: "" ,
             fullname: "",
             password: "",
         },
