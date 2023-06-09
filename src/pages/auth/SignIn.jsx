@@ -7,16 +7,26 @@ import {
     Divider,
     Flex,
     Text,
+    Loader
 } from "@mantine/core";
 import { Link as A, useNavigate } from "react-router-dom";
 import { IoLogoFacebook, IoLogoGoogle } from "react-icons/io5";
 import { useForm, zodResolver } from "@mantine/form";
 import { signInSchema } from "../../schema";
 import { useMutation } from '@tanstack/react-query';
-import axios from "axios"
+import { aXios } from '../../config';
+import { useEffect, useState } from "react";
+import { Notifications } from '@mantine/notifications';
+import { VscError, VscPass } from "react-icons/vsc";
+import { setAuthToken } from "../../utils/auth";
+import { VerifyOtpModal } from '../../components';
+
 
 const SignIn = () => {
     const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false)
+
 
     const form = useForm({
         validate: zodResolver(signInSchema),
@@ -26,16 +36,95 @@ const SignIn = () => {
         },
     });
 
-    const signUpMutation = useMutation((data) =>
-        axios.post("/user/create", data)
+    const signInMutation = useMutation((data) =>
+        aXios.post("/auth/login", data)
     );
 
     const handleSubmit = (data) => {
-        signUpMutation.mutate(data);
-     };
+        signInMutation.mutate(data);
+    };
+
+    const resendMailOtpMutation = useMutation(
+        (data) =>
+            aXios.post("/auth/verify/resend-token", data)
+    );
+
+    const handleResendMail = () => {
+        resendMailOtpMutation.mutate({ email: form.values.email });
+    }
+
+
+    useEffect(() => {
+        const {data, error} = signInMutation;
+        console.log({data, error})
+
+        if (error?.response?.data?.message.includes("verified")) {
+            Notifications.show(
+                {
+                    w: 280,
+                    message: "Email not verified",
+                    title: "Failed",
+                    color: "red",
+                    icon: <VscError />
+                }
+            )
+            setAuthToken("email", form.values.email)
+            handleResendMail()
+            Notifications.show(
+                {
+                    w: 280,
+                    message: "Sending Otp",
+                    icon: <Loader  variant="dots" />,
+                    color: "transparent",
+                    styles: {
+                        icon: {
+                            backgroundColor: "white"
+                        }
+                    }
+                }
+            )
+        }
+
+        if (error?.response?.data?.message.toLowerCase().includes("invalid")) {
+            Notifications.show(
+                {
+                    w: 280,
+                    message: "Incorrect email or password",
+                    title: "Failed",
+                    color: "red",
+                    icon: <VscError />
+                }
+            )
+        }
+
+        if (error?.response?.status === 500) {
+            Notifications.show(
+                {
+                    w: 250,
+                    message: "An error occurred \n Try again",
+                    title: "Failed",
+                    color: "red",
+                    icon: <VscError />
+                }
+            )
+
+        }
+
+
+    }, [signInMutation.data, signInMutation.error])
+
+    useEffect(()=>{
+        const {data,error} = resendMailOtpMutation;
+        console.log({data,error})
+        if(data){
+            setShowModal(true)
+        }
+    },[resendMailOtpMutation.data, resendMailOtpMutation.error])
 
     return (
         <>
+        <VerifyOtpModal handleResendMail={handleResendMail} email={form.values.email} setShowModal={setShowModal} showModal={showModal} />
+
             <div className="header">
                 <h2>Sign in</h2>
                 <p>Welcome back! Please enter your details.</p>
@@ -53,7 +142,7 @@ const SignIn = () => {
                         placeholder="**************"
                         {...form.getInputProps("password")}
                     />
-                    <Button type="submit" color={"violet.5"} size="md">
+                    <Button loading={signInMutation.isLoading} type="submit" color={"violet.5"} size="md">
                         Sign in
                     </Button>
 

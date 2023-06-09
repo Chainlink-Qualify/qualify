@@ -1,13 +1,21 @@
 import { Button, Container, Divider, Flex, PasswordInput, Stack, TextInput, Text, Drawer } from '@mantine/core';
-import { Link as A } from 'react-router-dom';
+import { Link as A, useNavigate } from 'react-router-dom';
 import { IoLogoFacebook, IoLogoGoogle } from "react-icons/io5"
 import { useEffect, useState } from 'react';
 import { useForm, zodResolver } from "@mantine/form";
 import { signUpSchema } from '../../schema';
 import { useMutation } from '@tanstack/react-query';
 import { aXios } from '../../config';
-
+import { Notifications } from '@mantine/notifications';
+import { VscError, VscPass } from "react-icons/vsc";
+import { setAuthToken } from "../../utils/auth";
+import logo from "../../assets/logo.png";
+import { VerifyOtpModal } from '../../components';
 const SignUp = () => {
+
+    const navigate = useNavigate();
+
+
     const [showModal, setShowModal] = useState(false)
 
     const form = useForm({
@@ -19,6 +27,15 @@ const SignUp = () => {
         },
     });
 
+    const resendMailOtpMutation = useMutation(
+        (data) =>
+            aXios.post("/auth/verify/resend-token", data)
+    );
+
+    const handleResendMail = () => {
+        resendMailOtpMutation.mutate({ email: form.values.email });
+    }
+
     const signUpMutation = useMutation((data) =>
         aXios.post("/auth/register", data)
     );
@@ -27,72 +44,64 @@ const SignUp = () => {
         signUpMutation.mutate({...data, user_type:"applicant" });
     };
 
+
     useEffect(() => {
         const { data, error } = signUpMutation
         console.log({ data, error })
+        if (data?.status === 201) {
+            Notifications.show(
+                {
+                    w: 250,
+                    message: "Account created",
+                    title: "Success",
+                    color: "green",
+                    icon: <VscPass />
+                }
+            )
+            setAuthToken("email", form.values.email)
+            setShowModal(true);
+        }
+
+        if (error?.response?.status === 409) {
+            Notifications.show(
+                {
+                    w: 250,
+                    message: "Email taken",
+                    title: "Failed",
+                    color: "red",
+                    icon: <VscError />
+                }
+            )
+
+        }
+
+
+        if (error?.response?.status === 500) {
+            Notifications.show(
+                {
+                    w: 250,
+                    message: "An error occurred",
+                    title: "Failed",
+                    color: "red",
+                    icon: <VscError />
+                }
+            )
+
+        }
     }, [signUpMutation.data, signUpMutation.error])
+
+    useEffect(()=>{
+        const {data,error} = resendMailOtpMutation;
+        console.log({data,error})
+        if(data){
+            setShowModal(true)
+        }
+    },[resendMailOtpMutation.data, resendMailOtpMutation.error])
 
     return (
         <>
 
-            <Drawer
-                opened={showModal}
-                onClose={() => setShowModal(false)}
-                position='bottom'
-                padding={0}
-                styles={{
-                    inner: {
-                        justifyContent: "flex-end !important",
-                        paddingRight: "40px",
-                    },
-                    close: {
-                        display: "none"
-                    },
-                    content: {
-                        height: "max-content !important",
-                        width: "450px !important",
-                        maxWidth: "430px !important",
-                        minWidth: "430px !important",
-                        borderRadius: "3px !important",
-                        display: "flex",
-                        alignItems: "center",
-                        flexDirection: "column",
-                        justifyContent: "flex-end"
-                    }
-                }}
-            >
-                <div className="form_container">
-                    <Container mt={20} mb={130}>
-                        QUANT
-
-                    </Container>
-                    <div className="header">
-                        <h2>Verify Email Address</h2>
-                        <p>
-                            "A six digit code has been sent to "
-                            <Text weight={"bold"} color={"black"} size={13} align='center'>jamesJohn@gmail.com</Text>
-                        </p>
-                    </div>
-                    <Container mb={100}>
-                    </Container>
-
-                    <Stack>
-                        <TextInput label={"OTP"} placeholder='******' />
-                        <Flex bg={"white"} align={'center'} justify={"flex-end"} gap={4}>
-                            <p style={{
-                                textAlign: "right",
-                                position: "absolute",
-                                transform: "translateY(-5px)",
-                                backgroundColor: "white",
-                                fontSize: "12px",
-                                fontWeight: "500",
-                            }} >Resend OTP</p>
-                        </Flex>
-                        <Button color={"violet.5"} size='md' >Verify</Button>
-
-                    </Stack>
-                </div>
-            </Drawer>
+          <VerifyOtpModal handleResendMail={handleResendMail} email={form.values.email} setShowModal={setShowModal} showModal={showModal} />
             <div className="header">
                 <h2>Create your account</h2>
                 <p>Enter the fields below to get started</p>
