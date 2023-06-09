@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -5,8 +6,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./assets/styles/index.css"
 import { MantineProvider } from '@mantine/core'
-
+import {Notifications} from "@mantine/notifications"
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+const queryClient = new QueryClient()
+
+
 root.render(
   <React.StrictMode>
     <MantineProvider
@@ -19,7 +25,10 @@ root.render(
 
       }}
     >
+      <Notifications></Notifications>
+      <QueryClientProvider client={queryClient}>
       <App />
+      </QueryClientProvider>
     </MantineProvider>
   </React.StrictMode>
 );
