@@ -80,10 +80,9 @@ text-decoration: none;
 
 
 export const Wrapper = styled.div`
-width: 100%;
-height: 50%;
+width: 100vw;
+height: 100vh;
 display: flex;
-background: #E6EAED;
-       
+
 `;
 
