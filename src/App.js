@@ -12,7 +12,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
-        path="/applicant/" element={<ApplicantDashboard /> }/>
+        path="/applicant/*" element={<ApplicantDashboard /> }/>
+     
      
     </Routes>
     </BrowserRouter>
