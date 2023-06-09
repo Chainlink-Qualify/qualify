@@ -1,10 +1,10 @@
-/*export const isObjectValuesEmpty = (obj) => {
+export const isObjectValuesEmpty = (obj) => {
     return Object.values(obj).every((value) => !Boolean(value));
   };
   
   export const isSomeObjectValuesEmpty = (obj) => {
     return Object.values(obj).some((value) => !Boolean(value));
-  };*/
+  };
   
   export const getUserName = () => {
     const user = localStorage.getItem("currentUser")

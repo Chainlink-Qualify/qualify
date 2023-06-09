@@ -7,7 +7,7 @@ import { TransactionParent, Button } from "./transaction.styles";
 const Transaction =()=>{
 
 return(<TransactionParent>
-       <h3>Transaction</h3>
+       <h3>Transaction Summary</h3>
        
 
 <Button>View all</Button>

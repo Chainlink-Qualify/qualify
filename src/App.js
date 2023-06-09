@@ -15,30 +15,7 @@ const path = {
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/applicant/" element={<ApplicantDashboard />} />
 
-            <Route path={path.auth} element={<AuthContainer />}>
-              <Route path="sign-in" element={<SignIn />} />
-              <Route path="sign-up" element={<SignUp />} />
-              <Route path="forgot-password" element={<ForgotPassword />} />
-              <Route path="reset-password" element={<ResetPassword />} />
-              <Route path="*" element={<SignUp />} />
-            </Route>
-
-            <Route path={path.admin} element={<AdminContainer />}>
-              <Route index element={<AdminHome />} />
-              <Route path="registered-users" element={<AdminUsers />} />
-              <Route path="registered-companies" element={<AdminCompanies />} />
-              <Route path="settings" element={<AdminSettings />} />
-              <Route path="revenue" element={<AdminRevenue />} />
-              <Route path="team-members" element={<AdminTeam />} />
-            </Route>
-
-      </Routes>
-    </BrowserRouter>
   );
 }
 

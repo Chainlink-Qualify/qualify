@@ -11,6 +11,10 @@ export const TransactionParent = styled.aside`
  border-radius: 12px;
  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.05), 0px 15px 25px rgba(0, 0, 0, 0.03);
  margin-left:1rem;
+  
+ &h3{
+  
+ }
   `;
 
 export const Button = styled.button`
