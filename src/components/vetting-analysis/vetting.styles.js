@@ -12,6 +12,7 @@ export const VettingParent = styled.div`
   
 
   & h3{
+    margin-top:2rem;
     margin-left:2rem;
     line-height:1rem;
   }

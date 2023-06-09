@@ -6,10 +6,12 @@ import {
   LinkContainer,
   NavBarContainer,
   LogoContainer,
+  Wrapper
   
 } from "./home.styles.js";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import landingimage from "../../assets/landingimage.png";
 
 
 
@@ -34,7 +36,9 @@ const Home = () => {
           <Button>Get Started</Button>
         </NavBarContainer>
       </HomePageNavBar>
-
+<Wrapper>
+<img src={landingimage} alt="landingimage"/>
+</Wrapper>
 
 
 
