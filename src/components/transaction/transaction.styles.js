@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const TransactionParent = styled.aside`
-  width: 50%;
+  width: 55%;
   height: 135vh;
   display: flex;
  background-color: #fff;
@@ -13,7 +13,7 @@ export const TransactionParent = styled.aside`
  margin-left:1rem;
   
  &h3{
-  
+  font-weight:500;
  }
   `;
 
@@ -29,6 +29,6 @@ align-items: center;
 justify-content: center;
 font-weight:700;
 margin-top:47rem;
-margin-right:6rem;
+margin-right:8rem;
 
 `;
