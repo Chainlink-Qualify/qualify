@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import React, { useEffect, useState } from "react";
-import { BiDotsHorizontalRounded, BiSearch } from "react-icons/bi";
+import { BiDotsHorizontalRounded, BiGroup, BiMoney, BiSearch } from "react-icons/bi";
 const AdminCompanies = () => {
     const data = [
         {
@@ -57,7 +57,7 @@ const AdminCompanies = () => {
     );
 
     const [user, setUser] = useState({ name: "", email: "" });
-    const { name, email } = user;
+    const { name, email, duration } = user;
     const selectUser = (id) => {
         setUser(users.find((ele) => ele.id === id));
         setShowModal(true);
@@ -102,20 +102,33 @@ const AdminCompanies = () => {
                 }}
                 size={500}
             >
-                <TextInput label={"Company name"} />
-                <TextInput label={"Email"} type="email" />
+                <TextInput label={"Company name"} value={name} />
+                <TextInput label={"Email"} type="email" value={email} />
                 <MultiSelect
+                    defaultValue={"standard"}
                     data={[
-                        { value: "male", label: "Male" },
-                        { value: "female", label: "Female" },
+                        { value: "Standard", label: "standard" },
+                        { value: "Premium", label: "premium" },
                     ]}
                     label={"Subscription type"}
                 />
-                <DateInput label={"Duration"} />
+                <TextInput label={"Duration"}  value={duration} />
             </Modal>
 
             <div className="table_container">
                 <h3>Registered Companies</h3>
+                <div className="card_container">
+                    <div className="card">
+                        <BiMoney /> 
+                        <h1>175</h1>
+                        <p>Standard Users</p>
+                    </div>
+                    <div className="card">
+                        <BiGroup />
+                        <h1>2,500</h1>
+                        <p>Premium Users</p>
+                    </div>
+                </div>
                 <TextInput
                     icon={<BiSearch />}
                     mt={20}

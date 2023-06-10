@@ -12,9 +12,10 @@ import { SignIn, SignUp, ResetPassword, ForgotPassword, AdminHome, AdminUsers, A
 
 
 const path = {
+  index:"/",
   auth: "/auth",
   admin: "/admin",
-  applicant:"/applicant"
+  applicant:"/applicant/*"
 }
 
 function App() {

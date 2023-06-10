@@ -1,12 +1,65 @@
-import { Modal, Avatar, TextInput, MultiSelect, Flex, Button } from '@mantine/core';
+import { Modal, Avatar, TextInput, MultiSelect, Flex, Button, Checkbox, Table, ActionIcon } from '@mantine/core';
 import { DateInput } from '@mantine/dates';
-import React from 'react';
+import { useState } from 'react';
+import { BiDotsHorizontalRounded, BiSearch } from "react-icons/bi";
 
 const AdminTeam = () => {
+
+    const data = [
+        {
+            id: 1,
+            name: "Fatima Aminu",
+            email: "Teemah@qualify.com",
+            date: "20th February, 2023",
+            status: "7/7",
+            img: "",
+        },
+        {
+            id: 2,
+            name: "Fatima Aminu",
+            email: "Teemah@qualify.com",
+            date: "20th February, 2023",
+            status: "7/7",
+            img: "",
+        },
+        {
+            id: 3,
+            name: "Fatima Aminu",
+            email: "Teemah@qualify.com",
+            date: "20th February, 2023",
+            status: "7/7",
+            img: "",
+        },
+        {
+            id: 4,
+            name: "Fatima Aminu",
+            email: "Teemah@qualify.com",
+            date: "20th February, 2023",
+            status: "7/7",
+            img: "",
+        },
+    ];
+    const [searchValue, setSearchValue] = useState("");
+    const [users, setUsers] = useState(data);
+    const [showModal, setShowModal] = useState(false);
+
+    const filtered = users.filter(
+        ({ email, name }) =>
+            email.trim().toLowerCase().includes(searchValue.trim().toLowerCase()) ||
+            name.trim().toLowerCase().includes(searchValue.trim().toLowerCase())
+    );
+
+    const [user, setUser] = useState({ name: "", email: "", })
+    const { name, email } = user
+    const selectUser = (id) => {
+        setUser(users.find(ele => ele.id === id))
+        setShowModal(true)
+    }
+
     return (
         <>
             <Modal
-                c
+
                 title={
                     <>
                         <Avatar
@@ -37,7 +90,9 @@ const AdminTeam = () => {
                         padding: "30px",
                     }
                 }}
-                size={500} opened={true}>
+                size={500}
+                onClose={() => setShowModal(false)}
+                opened={showModal}>
                 <TextInput label={"Name"} />
                 <TextInput label={"Email"} type="email" />
                 <MultiSelect
@@ -49,9 +104,73 @@ const AdminTeam = () => {
                 />
                 <DateInput label={"Date Joined"} />
 
-                <Flex  mt={30} justify={"center"}><Button color='red.8' size='md' >Suspend User</Button></Flex>
+                <Flex mt={30} justify={"center"}><Button color='red.8' size='md' >Suspend User</Button></Flex>
 
             </Modal>
+
+            <div className="table_container">
+                <Flex align={"center"} justify={"space-between"}>
+                <h3>Qualify Team Members</h3>
+                <Button size='xs' color='violet.5' >Invite Member</Button>
+                </Flex>
+                <TextInput
+                    icon={<BiSearch />}
+                    mt={20}
+                    mb={20}
+                    placeholder="Search by name or email"
+                    w={350}
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <Checkbox />
+                            </th>
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Date</th>
+
+                            <th>Status</th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {filtered.map(({ date, email, id, img, name, status }) => (
+                            <tr key={id}>
+                                <td>
+                                    <Checkbox />
+                                </td>
+
+                                <td onClick={() => selectUser(id)}>
+                                    <Flex gap={10} align={"center"}>
+                                        <Avatar src={img} size={35} radius={35} />
+                                        {name}
+                                    </Flex>
+                                </td>
+                                <td>{email}</td>
+
+                                <td>{date}</td>
+                                <td>
+                                    <ActionIcon size={"xs"} variant="subtle">
+                                        {status}
+                                    </ActionIcon>
+                                </td>
+                                <td>
+                                    <ActionIcon>
+                                        <BiDotsHorizontalRounded size={22} />
+                                    </ActionIcon>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </div>
         </>
     );
 };

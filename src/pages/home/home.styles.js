@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
+
 export const HomePageParent = styled.div`
     width: 100vw;
     height: 100vh;
@@ -35,7 +36,7 @@ export const LogoContainer = styled.div`
     align-items: center;
     color: #752F9F;
     margin-left: 1rem;
-    margin-top: 1rem;
+   margin-top:0.5rem;
 
     & img {
     width: 5rem;
@@ -53,7 +54,7 @@ border-radius:5px;
 color:#ffffff;
 height: 2.1rem;
 align-items: center;
-margin-top:0.6rem;
+margin-top:0.4rem;
 justify-content: center;
 margin-left:10rem;
 
@@ -64,13 +65,13 @@ export const LinkContainer = styled(Link)`
 display: flex;
 margin-top: 1.3rem;
 margin-left: 2rem;
-color: #eee;
+color: #000;
 font-size: large;
 font-family: Arial, Helvetica, sans-serif;
 text-decoration: none;
 &:hover,
 &:focus{
-    color: #752F9F;
+    color: #000000;
 }
 &:active{
     color: #752F9F;
@@ -83,6 +84,60 @@ export const Wrapper = styled.div`
 width: 100vw;
 height: 100vh;
 display: flex;
+position:relative;
+background:#1C1E20;
 
 `;
 
+export const Overlay = styled.div`
+position: absolute;
+z-index: 1;
+margin-top: 22rem;
+margin-left:30rem;
+
+& img{
+    height:20rem;
+    width:20rem;
+}
+
+
+
+`;
+
+export const TextContainer= styled.div`
+position: absolute;
+top: 30%;
+left: 40%;
+margin-left:6rem;
+transform: translate(-50%, -50%);
+color:#fff;
+align-content:center;
+justify-content: center;
+
+& h1{
+font-weight:700;
+line-height:4rem;
+font-size:2.5rem;
+}
+
+`;
+
+
+export const CardWrapper = styled.div`
+width: 100%;
+height: 50%;
+display: flex;
+background:#f8f5fa;
+
+
+
+`;
+
+
+export const FooterWrapper = styled.div`
+width: 100%;
+height: 50%;
+display: flex;
+background:#200332;
+margin-top: 12rem;     
+`;

@@ -15,12 +15,13 @@ export const WalletParent = styled.div`
   }
 
   & h3{
+    margin-top:1rem;
     margin-left:2rem;
   }
 
 & p{
-    margin-left:2rem;
-    line-height:0.5rem;
+   
+    line-height:2rem;
     font-weight:500;
 }
   
@@ -30,4 +31,20 @@ export const WalletParent = styled.div`
 export const ContentWrapper = styled.div`
  display: flex;
  
+`;
+export const CButton = styled.button`
+display: flex;
+background:#752F9F;
+width:10rem;
+border: 2px solid #752F9F; 
+border-radius:5px;
+color:#fff;
+height: 2.5rem;
+align-items: center;
+justify-content: center;
+font-weight:700;
+margin-top:5rem;
+margin-left:8rem
+
+
 `;

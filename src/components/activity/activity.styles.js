@@ -24,6 +24,7 @@ export const Table = styled.table`
     font-weight:500;
     font-size:1.5rem;
     line-height:2rem;
+    margin-top:1rem;
 }
   & td {
     text-align:center;

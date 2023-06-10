@@ -40,6 +40,6 @@ export const ButtonsContainer = styled.div`
   width: 100%;
   height: 18%;
   display: flex;
-  margin-top:2rem;
+  margin-top:4rem;
 
 `;

@@ -32,8 +32,7 @@ export const InfoContainer = styled.div`
   width: 20%;
   height: 65%;
   display: flex;
-  margin-top: 1rem;
-  flex-direction: column;
+ flex-direction: column;
   justify-content: center;
   color: #000;
 
@@ -123,7 +122,7 @@ export const SettingContainer = styled.div`
   display: flex;
   margin-left:10rem
   align-items: center;
-  margin-top:3.1rem;
+  margin-top:3.3rem;
 
   & img {
     width: 1.5rem;
