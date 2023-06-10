@@ -6,12 +6,18 @@ import {
   LinkContainer,
   NavBarContainer,
   LogoContainer,
-  Wrapper
-  
+  Wrapper,
+  Overlay,
+  TextContainer,
+  CardWrapper,
+  FooterWrapper
 } from "./home.styles.js";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import landingimage from "../../assets/landingimage.png";
+import successfulvetting from "../../assets/successfulvetting.png";
+import Card from "../../components/card/Card";
+import Footer from "../../components/footer/Footer";
 
 
 
@@ -37,10 +43,17 @@ const Home = () => {
         </NavBarContainer>
       </HomePageNavBar>
 <Wrapper>
-<img src={landingimage} alt="landingimage"/>
+<TextContainer><h1>Welcome to Qualify, where talent meets opportunity!</h1>
+<h2>The Platform that Connects Hiring Managers with Candidates with verified 
+  work experiences.</h2>
+  <Button>Get Started</Button></TextContainer>
+<img src={landingimage} alt="landingimage" position="relative"/>
+<Overlay><img src={successfulvetting} alt="successfulvetting" position="absolute"/></Overlay>
+
 </Wrapper>
 
-
+<CardWrapper><Card/></CardWrapper>
+<FooterWrapper><Footer/></FooterWrapper>
 
 
 

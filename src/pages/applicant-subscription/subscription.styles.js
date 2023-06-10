@@ -16,7 +16,7 @@ export const SubscriptionParent = styled.main`
     margin-left: 20rem;
     font-weight:400;
     font-size:1.5rem;
-    line-height:1rem;
+    line-height:2rem;
   }
 
 `;
@@ -36,6 +36,7 @@ export const CenterWrapper = styled.div`
   & li{
   color:#752F9F;
   font-weight:500;
+  margin-top:1rem;
   }
  
 `;
@@ -43,7 +44,7 @@ export const CenterWrapper = styled.div`
 
 
 export const StandardWrapper = styled.div`
-  width: 30%;
+  width: 40%;
   height: 70%;
   border-right: 1px solid #f8f5fa;
   border-bottom: 1px solid #f8f5fa;
@@ -59,7 +60,7 @@ export const StandardWrapper = styled.div`
 `;
 
 export const PremiumWrapper = styled.div`
-  width: 30%;
+  width: 40%;
   height: 70%;
   border-right: 1px solid #f8f5fa;
   border-bottom: 1px solid #f8f5fa;
@@ -85,7 +86,7 @@ align-items: center;
 justify-content: center;
 font-weight:700;
 margin-top:3rem;
-margin-left:2.5rem;
+margin-left:3rem;
 
 
 `;
