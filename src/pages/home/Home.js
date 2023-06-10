@@ -10,7 +10,8 @@ import {
   Overlay,
   TextContainer,
   CardWrapper,
-  FooterWrapper
+  FooterWrapper,
+  CenterWrapper
 } from "./home.styles.js";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -18,6 +19,7 @@ import landingimage from "../../assets/landingimage.png";
 import successfulvetting from "../../assets/successfulvetting.png";
 import Card from "../../components/card/Card";
 import Footer from "../../components/footer/Footer";
+import Center from "../../components/center/Center";
 
 
 
@@ -33,11 +35,10 @@ const Home = () => {
           </LogoContainer>
           <LinkContainer><Link>About</Link>
           </LinkContainer>
-       <LinkContainer> <Link marginRight={10}>Pricing</Link></LinkContainer>
-       <LinkContainer> <Link marginRight={10}>Pricing</Link></LinkContainer>
+      <LinkContainer> <Link marginRight={10}>Pricing</Link></LinkContainer>
        <LinkContainer><Link marginRight={10}>How it works</Link></LinkContainer>
         <LinkContainer><Link marginRight={20}>Support</Link></LinkContainer>
-        <LinkContainer marginLeft={'20rem'}><Link to="/sign">Sign in</Link></LinkContainer>
+        <LinkContainer marginLeft={30}><Link to="/sign">Sign in</Link></LinkContainer>
           
           <Button>Get Started</Button>
         </NavBarContainer>
@@ -51,7 +52,7 @@ const Home = () => {
 <Overlay><img src={successfulvetting} alt="successfulvetting" position="absolute"/></Overlay>
 
 </Wrapper>
-
+ <CenterWrapper><Center/></CenterWrapper>
 <CardWrapper><Card/></CardWrapper>
 <FooterWrapper><Footer/></FooterWrapper>
 

@@ -108,6 +108,7 @@ border-radius:5px;
 color:#ffffff;
 height: 2.4rem;
 align-items: center;
+align-content:center;
 margin-left:1.2rem;
 font-size: 1rem;
 

@@ -92,7 +92,7 @@ background:#1C1E20;
 export const Overlay = styled.div`
 position: absolute;
 z-index: 1;
-margin-top: 22rem;
+margin-top: 18rem;
 margin-left:30rem;
 
 & img{
@@ -105,10 +105,11 @@ margin-left:30rem;
 `;
 
 export const TextContainer= styled.div`
+width: 100vw;
 position: absolute;
 top: 30%;
-left: 40%;
-margin-left:6rem;
+left: 55%;
+margin-left:10rem;
 transform: translate(-50%, -50%);
 color:#fff;
 align-content:center;
@@ -119,6 +120,17 @@ font-weight:700;
 line-height:4rem;
 font-size:2.5rem;
 }
+
+`;
+
+
+export const CenterWrapper = styled.div`
+width: 100%;
+height: 50%;
+display: flex;
+background:#f8f5fa;
+margin-bottom:10rem;
+
 
 `;
 
