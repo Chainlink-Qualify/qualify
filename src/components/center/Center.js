@@ -45,7 +45,7 @@ const Center = () => {
         <br></br>for consideration</p>
       </SecondDiv>
       <ThirdDiv>
-       <h1> Secure and Confidential</h1>
+       <h1>Secure and Confidential</h1>
        <p>At TalentVet, we prioritize the security and 
        <br></br>confidentiality of your information. We employ
        <br></br> robust encryption protocols to safeguard your 

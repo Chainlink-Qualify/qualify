@@ -42,6 +42,11 @@ export const FirstDiv = styled.div`
     & p{
         line-height:2rem;
     }
+
+    & img{
+        width:2rem;
+        height:2rem;
+    }
     
    
     `;
@@ -65,6 +70,11 @@ export const SecondDiv = styled.div`
     & p{
         line-height:2rem;
     }
+
+    & img{
+        width:2rem;
+        height:2rem;
+    }
     `;
 
 export const ThirdDiv = styled.div`
@@ -86,6 +96,11 @@ export const ThirdDiv = styled.div`
     }
     & p{
         line-height:2rem;
+    }
+    
+    & img{
+        width:2rem;
+        height:2rem;
     }
     `;
 
