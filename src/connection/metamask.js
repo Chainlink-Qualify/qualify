@@ -1,26 +1,21 @@
+import { ethers } from 'ethers';
 
-import {
-  connect,
-  isMetaMaskInstalled,
-  getProvider,
-  getSigner,
-} from '../connection/metamask';
 export const isMetaMaskInstalled = () => {
   //Have to check the ethereum binding on the window object to see if it's installed
   const { ethereum } = window;
   return Boolean(ethereum && ethereum.isMetaMask);
 };
 
-export const checkMetamask = () => {
-  if (isMetaMaskInstalled) {
-    if (window.ethereum.chainId === '0x5') {
-      return connect();
-    } else {
-    }
-  } else {
-    throw new Error('Install metamask');
-  }
-};
+// export const checkMetamask = () => {
+//   if (isMetaMaskInstalled) {
+//     if (window.ethereum.chainId === '0x5') {
+//       return connect();
+//     } else {
+//     }
+//   } else {
+//     throw new Error('Install metamask');
+//   }
+// };
 
 export const getProvider = () => {
   const provider = new ethers.BrowserProvider(window.ethereum);
