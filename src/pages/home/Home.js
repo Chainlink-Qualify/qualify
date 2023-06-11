@@ -11,7 +11,8 @@ import {
   TextContainer,
   CardWrapper,
   FooterWrapper,
-  CenterWrapper
+  CenterWrapper,
+  SummaryWrapper
 } from "./home.styles.js";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -20,6 +21,7 @@ import successfulvetting from "../../assets/successfulvetting.png";
 import Card from "../../components/card/Card";
 import Footer from "../../components/footer/Footer";
 import Center from "../../components/center/Center";
+import Summary from "../../components/summary/Summary.js";
 
 
 
@@ -53,6 +55,7 @@ const Home = () => {
 
 </Wrapper>
  <CenterWrapper><Center/></CenterWrapper>
+ <SummaryWrapper><Summary/></SummaryWrapper>
 <CardWrapper><Card/></CardWrapper>
 <FooterWrapper><Footer/></FooterWrapper>
 

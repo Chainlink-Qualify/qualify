@@ -134,6 +134,16 @@ margin-bottom:10rem;
 
 `;
 
+export const SummaryWrapper = styled.div`
+width: 100vw;
+height: 50%;
+display: flex;
+background:#f4f4f4;
+margin-bottom:15rem;
+
+
+
+`;
 
 export const CardWrapper = styled.div`
 width: 100%;
